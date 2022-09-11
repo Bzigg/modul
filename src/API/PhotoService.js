@@ -3,3 +3,9 @@ export const fetchAllPhoto = () => {
         method: 'GET'
     });
 }
+
+export const fetchPhoto = (url) => {
+    return fetch(url, {
+        method: 'GET'
+    });
+}
