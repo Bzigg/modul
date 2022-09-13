@@ -10,6 +10,7 @@ import {
 import PhotoItem from "./PhotoItem"
 import Input from "./UI/Input/Input"
 import Modal from "./UI/Modal/Modal"
+import "./PhotoModal.css"
 
 export default function PhotoModal({ photoId, resetId }) {
     const dispatch = useDispatch()
@@ -79,7 +80,7 @@ export default function PhotoModal({ photoId, resetId }) {
                     </>
                 )}
                 <div className="postPhoto__field">
-                    <form action="#" className="postPhoto__form">
+                    <form action="#" className="display__flex fd__column">
                         <Input
                             placeholder="имя"
                             value={name}
