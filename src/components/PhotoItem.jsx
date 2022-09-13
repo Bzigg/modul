@@ -6,6 +6,7 @@ export default function PhotoItem({ url, photoId, openModal }) {
     const hasError = async () => {
         let status
         try {
+            // Бросаю ошибку для того чтобы не падали в консоль 403 ошибка и CORS
             throw Error
             status = await fetchPhoto(url)
         } catch (e) {

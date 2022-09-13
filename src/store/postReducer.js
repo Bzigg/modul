@@ -31,6 +31,7 @@ export const postReducer = (state = postState, action) => {
             }
 
             newState.postData.comments.push({
+                // Уникальный id, т.к. нет ответа с бэка
                 id: Date.now(),
                 date: Date.now(),
                 text: action.payload,
@@ -41,6 +42,7 @@ export const postReducer = (state = postState, action) => {
     }
 }
 
+// Добавляет данные для открытия модально окна в стейт
 export const setPostAction = (payload) => {
     return {
         type: SET_POST,
@@ -48,12 +50,14 @@ export const setPostAction = (payload) => {
     }
 }
 
+// Очищает стейт
 export const cleanPostAction = () => {
     return {
         type: CLEAN,
     }
 }
 
+// Запрашивает данные о конкретной фотографии
 export const fetchPostAction = (payload) => {
     return {
         type: FETCH_POST,
@@ -61,6 +65,7 @@ export const fetchPostAction = (payload) => {
     }
 }
 
+// Отправляет комментарий на бэк
 export const sendCommentAction = (payload) => {
     return {
         type: SEND_COMMENT,
@@ -68,6 +73,7 @@ export const sendCommentAction = (payload) => {
     }
 }
 
+// Добавляет в стейт для модалки новый комментарий (только если ответ со статусом 204)
 export const sendCommentSuccessAction = (payload) => {
     return {
         type: SEND_COMMENT_SUCCESS,

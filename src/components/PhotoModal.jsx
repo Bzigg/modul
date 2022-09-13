@@ -16,7 +16,6 @@ export default function PhotoModal({ photoId, resetId }) {
     const dispatch = useDispatch()
 
     const [comment, setComment] = useState("")
-
     const [name, setName] = useState("")
 
     const modalVisible = useSelector((state) => {
@@ -42,12 +41,19 @@ export default function PhotoModal({ photoId, resetId }) {
                 comment,
             })
         )
+        cleanForm()
     }
 
     const closeModal = () => {
         dispatch(closeModalAction())
         dispatch(cleanPostAction())
         resetId()
+        cleanForm()
+    }
+
+    const cleanForm = () => {
+        setName("")
+        setComment("")
     }
 
     return (
@@ -89,6 +95,7 @@ export default function PhotoModal({ photoId, resetId }) {
                         <textarea
                             name="postPhoto_Comment"
                             id="postPhoto_Comment"
+                            placeholder="комментарий"
                             cols="30"
                             rows="10"
                             value={comment}

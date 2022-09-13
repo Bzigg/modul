@@ -7,6 +7,9 @@ import {
     setPostAction,
 } from "../store/postReducer"
 
+// Статус успешной записи комментария
+const STATUS_OK = 204
+
 function* fetchPostWorker({ payload }) {
     const data = yield call(fetchPost, payload.photoId)
     const json = yield call(() => new Promise((res) => res(data.json())))
@@ -17,7 +20,7 @@ function* sendCommentWorker({ payload }) {
     try {
         const data = yield call(sendComment, payload)
         const status = yield call(() => new Promise((res) => res(data.status)))
-        if (status === 204) {
+        if (status === STATUS_OK) {
             yield put(sendCommentSuccessAction(payload.comment))
         }
     } catch (e) {

@@ -16,6 +16,7 @@ export const modalReducer = (state = modalState, action) => {
     }
 }
 
+// Открывает модальное окно
 export const openModalAction = () => {
     return {
         type: VISIBLE_ON,
@@ -23,6 +24,7 @@ export const openModalAction = () => {
     }
 }
 
+// Закрывает модальное окно
 export const closeModalAction = () => {
     return {
         type: VISIBLE_OFF,

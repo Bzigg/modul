@@ -14,6 +14,7 @@ export const photoReducer = (state = photoState, action) => {
     }
 }
 
+// Добавляет все фото в стейт с бэка
 export const setAllPhotoAction = (payload) => {
     return {
         type: SET_ALL_PHOTO,
@@ -21,6 +22,7 @@ export const setAllPhotoAction = (payload) => {
     }
 }
 
+// Получает все фото
 export const fetchAllPhotoAction = () => {
     return {
         type: FETCH_ALL_PHOTO,
